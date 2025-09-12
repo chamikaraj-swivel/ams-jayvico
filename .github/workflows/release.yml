@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          cd frontend && npm ci
+          cd ../backend && npm ci
+
+      - name: Build applications
+        run: |
+          cd frontend && npm run build
+          cd ../backend && npm run build
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          body: |
+            ## Changes in this Release
+
+            ### Frontend
+            - React TypeScript application with Redux state management
+            - Tailwind CSS for styling
+            - Responsive design components
+
+            ### Backend
+            - NestJS API with TypeScript
+            - Google Cloud Firestore integration
+            - Swagger API documentation
+            - Health check endpoints
+
+            ### Infrastructure
+            - Docker containerization
+            - CI/CD pipeline with GitHub Actions
+            - Automated testing and deployment
+
+            ## Installation
+
+            ### Development
+            ```bash
+            # Clone the repository
+            git clone <repository-url>
+            cd vehicle-import-system
+
+            # Start with Docker Compose
+            docker-compose -f docker-compose.dev.yml up
+            ```
+
+            ### Production
+            ```bash
+            # Start production containers
+            docker-compose up
+            ```
+
+            ## API Documentation
+
+            Once running, visit:
+            - Frontend: http://localhost:3000
+            - Backend API: http://localhost:3001
+            - API Documentation: http://localhost:3001/api
+
