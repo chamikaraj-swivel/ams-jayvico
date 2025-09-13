@@ -29,7 +29,7 @@ const JayvicoLogo: React.FC<JayvicoLogoProps> = ({
     xl: "text-xl",
   };
 
-  const logoPath = "/assets/jayvio-logo-1.png";
+  const logoPath = "/src/assets/Blue.png";
   const textColor = variant === "light" ? "text-white" : "text-primary-900";
 
   // If image fails to load, show fallback text

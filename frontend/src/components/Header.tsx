@@ -43,7 +43,7 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           <JayvicoLogo size="md" variant="light" showText={false} />
           <div>
-            <p className="text-sm text-primary-200">Jayvico Automobile</p>
+            <p className="text-sm text-primary-100">Jayvico Automobile</p>
           </div>
         </div>
 
@@ -60,14 +60,14 @@ const Header: React.FC = () => {
                 <p className="text-sm font-medium text-white">
                   {user.firstName} {user.lastName}
                 </p>
-                <p className="text-xs text-primary-200">
+                <p className="text-xs text-primary-100">
                   {getRoleDisplayName(user.role)}
                 </p>
               </div>
             </div>
             <button
               onClick={handleLogout}
-              className="text-primary-200 hover:text-white transition-colors duration-200"
+              className="text-primary-100 hover:text-white transition-colors duration-200"
               title="Sign Out"
             >
               <svg
