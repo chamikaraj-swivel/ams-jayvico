@@ -87,15 +87,15 @@ const ProfilePage: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
-        <p className="text-gray-600">Manage your account information</p>
+      <div className="text-left">
+        <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
+        <p className="text-gray-600 mt-1">Manage your account information</p>
       </div>
 
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex justify-between items-start mb-6">
-            <div>
+            <div className="text-left">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 Personal Information
               </h3>
@@ -184,20 +184,20 @@ const ProfilePage: React.FC = () => {
             </div>
 
             {isEditing && (
-              <div className="flex justify-end space-x-3">
-                <button
-                  type="button"
-                  onClick={handleCancel}
-                  className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  Cancel
-                </button>
+              <div className="flex justify-start space-x-3">
                 <button
                   type="submit"
                   disabled={loading}
                   className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Saving..." : "Save Changes"}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCancel}
+                  className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  Cancel
                 </button>
               </div>
             )}
@@ -208,7 +208,7 @@ const ProfilePage: React.FC = () => {
       {/* Account Information */}
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
+          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4 text-left">
             Account Information
           </h3>
           <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
@@ -216,9 +216,9 @@ const ProfilePage: React.FC = () => {
               <dt className="text-sm font-medium text-gray-500">
                 Account Status
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dd className="mt-1 text-sm text-gray-900 text-left">
                 <span
-                  className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                  className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full w-fit ${
                     user.isActive
                       ? "bg-green-100 text-green-800"
                       : "bg-red-100 text-red-800"
@@ -232,9 +232,9 @@ const ProfilePage: React.FC = () => {
               <dt className="text-sm font-medium text-gray-500">
                 Password Status
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dd className="mt-1 text-sm text-gray-900 text-left">
                 <span
-                  className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                  className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full w-fit ${
                     user.mustChangePassword
                       ? "bg-yellow-100 text-yellow-800"
                       : "bg-green-100 text-green-800"
@@ -250,13 +250,13 @@ const ProfilePage: React.FC = () => {
               <dt className="text-sm font-medium text-gray-500">
                 Member Since
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dd className="mt-1 text-sm text-gray-900 text-left">
                 {formatDate(user.createdAt)}
               </dd>
             </div>
             <div>
               <dt className="text-sm font-medium text-gray-500">Last Login</dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dd className="mt-1 text-sm text-gray-900 text-left">
                 {user.lastLoginAt ? formatDate(user.lastLoginAt) : "Never"}
               </dd>
             </div>
