@@ -223,7 +223,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
                 <button
                   type="submit"
                   disabled={loading || !formData.email || !formData.password}
-                  className="w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary-900 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {loading ? (
                     <div className="flex items-center">
@@ -258,7 +258,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
               <div className="text-center">
                 <p className="text-sm text-neutral-600">
                   Don't have an account?{" "}
-                  <span className="font-medium text-primary-600">
+                  <span className="font-medium text-primary-900">
                     Contact your administrator
                   </span>
                 </p>
