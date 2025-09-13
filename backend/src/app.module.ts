@@ -5,7 +5,6 @@ import { AppService } from './app.service';
 import { HealthModule } from './modules/health/health.module';
 import { VehicleModule } from './modules/vehicle/vehicle.module';
 import { CustomerModule } from './modules/customer/customer.module';
-import { AuthModule } from './modules/auth/auth.module';
 import { FirestoreModule } from './common/firestore/firestore.module';
 
 @Module({
@@ -15,7 +14,6 @@ import { FirestoreModule } from './common/firestore/firestore.module';
       envFilePath: '.env',
     }),
     FirestoreModule,
-    AuthModule,
     HealthModule,
     VehicleModule,
     CustomerModule,

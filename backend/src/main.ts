@@ -25,11 +25,9 @@ async function bootstrap() {
     .setTitle('Vehicle Import System API')
     .setDescription('API for managing vehicle imports and customer data')
     .setVersion('1.0')
-    .addTag('auth')
     .addTag('vehicles')
     .addTag('customers')
     .addTag('health')
-    .addBearerAuth()
     .build();
   
   const document = SwaggerModule.createDocument(app, config);

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import JayvicoLogo from "../components/JayvicoLogo";
 
 const Dashboard: React.FC = () => {
   const { vehicles } = useSelector((state: RootState) => state.vehicles);
@@ -53,7 +54,10 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
-        <h1 className="heading-1">Dashboard</h1>
+        <div className="flex items-center space-x-4">
+          <JayvicoLogo size="sm" variant="dark" showText={false} />
+          <h1 className="heading-1">Dashboard</h1>
+        </div>
         <div className="flex space-x-3">
           <button className="btn-primary">Add Vehicle</button>
           <button className="btn-outline">Export Report</button>

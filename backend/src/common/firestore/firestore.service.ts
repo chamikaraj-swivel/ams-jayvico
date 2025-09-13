@@ -9,11 +9,18 @@ export class FirestoreService implements OnModuleInit {
     try {
       // Initialize Firestore
       this.firestore = new Firestore({
-        projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
-        keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+        projectId: process.env.GOOGLE_CLOUD_PROJECT_ID || 'jayvico-ams',
+        // Use emulator if specified, otherwise use real Firebase
+        ...(process.env.FIRESTORE_EMULATOR_HOST ? {
+          host: process.env.FIRESTORE_EMULATOR_HOST,
+          ssl: false,
+        } : {
+          keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+        }),
       });
 
       console.log('✅ Firestore connection initialized');
+      console.log(`📊 Using ${process.env.FIRESTORE_EMULATOR_HOST ? 'Emulator' : 'Real Firebase'}`);
     } catch (error) {
       console.error('❌ Failed to initialize Firestore:', error);
       throw error;
@@ -37,12 +44,5 @@ export class FirestoreService implements OnModuleInit {
     return this.firestore.collection('orders');
   }
 
-  getUsersCollection() {
-    return this.firestore.collection('users');
-  }
-
-  getAuditLogsCollection() {
-    return this.firestore.collection('audit_logs');
-  }
 }
 

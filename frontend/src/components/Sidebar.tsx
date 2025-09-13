@@ -1,19 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { clearUser } from "../store/slices/authSlice";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { UserRole } from "../types/auth";
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
-  const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.auth);
 
   const isActive = (path: string) => location.pathname === path;
-
-  const handleLogout = () => {
-    dispatch(clearUser());
-  };
 
   const navigationItems = [
     {
@@ -79,49 +70,7 @@ const Sidebar: React.FC = () => {
         </svg>
       ),
     },
-    {
-      name: "Profile",
-      href: "/profile",
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-          />
-        </svg>
-      ),
-    },
   ];
-
-  // Add admin-only navigation items
-  if (user?.role === UserRole.ADMIN) {
-    navigationItems.push({
-      name: "User Management",
-      href: "/admin/users",
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
-          />
-        </svg>
-      ),
-    });
-  }
 
   return (
     <div className="h-full flex flex-col">
@@ -147,31 +96,6 @@ const Sidebar: React.FC = () => {
             </Link>
           ))}
         </nav>
-      </div>
-
-      {/* Bottom Section - Fixed at bottom */}
-      <div className="p-6 border-t border-neutral-200">
-        <div className="space-y-2">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-neutral-600 hover:bg-neutral-50 hover:text-primary-900 transition-colors duration-200"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-            <span>Logout</span>
-          </button>
-        </div>
       </div>
     </div>
   );
