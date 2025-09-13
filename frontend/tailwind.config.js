@@ -6,19 +6,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Custom Blue Theme based on Blue.png logo
+        // Custom Blue Theme with #000038 as primary
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6', // Main blue from logo
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a', // Dark blue from logo
-          950: '#172554',
+          50: '#f0f4ff',
+          100: '#e0e9ff',
+          200: '#c7d6ff',
+          300: '#a5b8ff',
+          400: '#8190ff',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#000038', // Your specified primary color
+          950: '#000025',
         },
         // Secondary colors that complement dark blue
         secondary: {
@@ -102,9 +102,9 @@ module.exports = {
         mono: ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'primary': '0 4px 14px 0 rgba(59, 130, 246, 0.15)',
-        'primary-lg': '0 10px 25px 0 rgba(59, 130, 246, 0.2)',
-        'primary-xl': '0 20px 40px 0 rgba(59, 130, 246, 0.25)',
+        'primary': '0 4px 14px 0 rgba(0, 0, 56, 0.15)',
+        'primary-lg': '0 10px 25px 0 rgba(0, 0, 56, 0.2)',
+        'primary-xl': '0 20px 40px 0 rgba(0, 0, 56, 0.25)',
       },
     },
   },
