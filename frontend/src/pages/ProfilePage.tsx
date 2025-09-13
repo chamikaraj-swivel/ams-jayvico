@@ -116,7 +116,7 @@ const ProfilePage: React.FC = () => {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 text-left"
                 >
                   First Name
                 </label>
@@ -136,7 +136,7 @@ const ProfilePage: React.FC = () => {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 text-left"
                 >
                   Last Name
                 </label>
@@ -157,7 +157,7 @@ const ProfilePage: React.FC = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 text-left"
               >
                 Email Address
               </label>
@@ -175,7 +175,7 @@ const ProfilePage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 text-left">
                 Role
               </label>
               <div className="mt-1 px-3 py-2 border border-gray-300 bg-gray-50 rounded-md shadow-sm sm:text-sm">
@@ -213,7 +213,7 @@ const ProfilePage: React.FC = () => {
           </h3>
           <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
             <div>
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-gray-500 text-left">
                 Account Status
               </dt>
               <dd className="mt-1 text-sm text-gray-900 text-left">
@@ -229,7 +229,7 @@ const ProfilePage: React.FC = () => {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-gray-500 text-left">
                 Password Status
               </dt>
               <dd className="mt-1 text-sm text-gray-900 text-left">
@@ -247,7 +247,7 @@ const ProfilePage: React.FC = () => {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-gray-500 text-left">
                 Member Since
               </dt>
               <dd className="mt-1 text-sm text-gray-900 text-left">
@@ -255,7 +255,7 @@ const ProfilePage: React.FC = () => {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">Last Login</dt>
+              <dt className="text-sm font-medium text-gray-500 text-left">Last Login</dt>
               <dd className="mt-1 text-sm text-gray-900 text-left">
                 {user.lastLoginAt ? formatDate(user.lastLoginAt) : "Never"}
               </dd>
