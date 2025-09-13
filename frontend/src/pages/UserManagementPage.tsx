@@ -209,17 +209,17 @@ const UserManagementPage: React.FC = () => {
                 ) : (
                   users.map((user) => (
                     <tr key={user.userId}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="px-6 py-4 whitespace-nowrap text-left text-sm font-medium text-gray-900">
                         {user.firstName} {user.lastName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-left text-sm text-gray-500">
                         {user.email}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-left text-sm text-gray-500">
                         {getRoleDisplayName(user.role)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex flex-col space-y-1">
+                      <td className="px-6 py-4 whitespace-nowrap text-left">
+                        <div className="flex flex-col space-y-1 items-start">
                           <span
                             className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full w-fit ${
                               user.isActive
@@ -236,10 +236,10 @@ const UserManagementPage: React.FC = () => {
                           )}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-left text-sm text-gray-500">
                         {formatDate(user.createdAt)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 whitespace-nowrap text-left text-sm text-gray-500">
                         {user.lastLoginAt
                           ? formatDate(user.lastLoginAt)
                           : "Never"}
