@@ -113,6 +113,18 @@ export class FirebaseAuthService {
         temporaryPassword: userData.temporaryPassword,
       };
     } catch (error: any) {
+      console.error('Detailed error creating user:', {
+        error: error,
+        code: error.code,
+        message: error.message,
+        stack: error.stack
+      });
+      
+      // Handle specific Firestore errors
+      if (error.code === 'permission-denied') {
+        throw new Error('Permission denied: You must be logged in as an admin to create new users. Please ensure you are logged in with an admin account and that your admin profile exists in the system.');
+      }
+      
       throw new Error(this.getErrorMessage(error.code));
     }
   }
@@ -289,6 +301,22 @@ export class FirebaseAuthService {
     
     // Shuffle the password
     return password.split('').sort(() => Math.random() - 0.5).join('');
+  }
+
+  // Check if current user is admin
+  async isCurrentUserAdmin(): Promise<boolean> {
+    try {
+      const currentUser = auth.currentUser;
+      if (!currentUser) {
+        return false;
+      }
+      
+      const userProfile = await this.getUserProfile(currentUser.uid);
+      return userProfile.role === 'Admin';
+    } catch (error) {
+      console.error('Error checking admin status:', error);
+      return false;
+    }
   }
 
   // Get user-friendly error messages

@@ -80,6 +80,14 @@ const UserManagementPage: React.FC = () => {
     }
 
     try {
+      // Check if current user is admin before attempting to create user
+      if (!currentUser || currentUser.role !== UserRole.ADMIN) {
+        alert(
+          "Only administrators can create new users. Please ensure you are logged in with an admin account."
+        );
+        return;
+      }
+
       await dispatch(createUser(formData)).unwrap();
       setShowCreateForm(false);
       setFormData({
@@ -90,8 +98,13 @@ const UserManagementPage: React.FC = () => {
         temporaryPassword: "",
       });
       loadUsers(); // Reload users list
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to create user:", error);
+
+      // Show user-friendly error message
+      const errorMessage =
+        error.message || "An unknown error occurred while creating the user.";
+      alert(`Failed to create user: ${errorMessage}`);
     }
   };
 
@@ -125,10 +138,7 @@ const UserManagementPage: React.FC = () => {
             Manage system users and their access permissions
           </p>
         </div>
-        <button
-          onClick={() => setShowCreateForm(true)}
-          className="btn-primary"
-        >
+        <button onClick={() => setShowCreateForm(true)} className="btn-primary">
           Create New User
         </button>
       </div>
