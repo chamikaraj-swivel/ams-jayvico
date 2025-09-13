@@ -105,7 +105,7 @@ const ProfilePage: React.FC = () => {
             </div>
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="btn-primary"
             >
               {isEditing ? "Cancel" : "Edit Profile"}
             </button>
@@ -195,7 +195,7 @@ const ProfilePage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-primary-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Saving..." : "Save Changes"}
                 </button>
