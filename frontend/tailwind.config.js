@@ -17,7 +17,7 @@ module.exports = {
           600: '#4f46e5',
           700: '#4338ca',
           800: '#3730a3',
-          900: '#000038', // Your specified primary color
+          900: '#000038', // Your specified primary color #000038
           950: '#000025',
         },
         // Secondary colors that complement dark blue
