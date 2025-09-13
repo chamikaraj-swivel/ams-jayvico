@@ -223,7 +223,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
                 <button
                   type="submit"
                   disabled={loading || !formData.email || !formData.password}
-                  className="w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-lg shadow-sm text-sm font-medium btn-signin focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full flex justify-center items-center px-4 py-3 
+                  border border-transparent rounded-lg shadow-sm text-sm font-medium 
+                  btn-signin focus:outline-none focus:ring-2 focus:ring-offset-2  
+                  disabled:opacity-50 disabled:cursor-not-allowed transition-colors
+                  bg-primary-900 text-white hover:bg-primary-900 focus:bg-primary-900"
                 >
                   {loading ? (
                     <div className="flex items-center">
